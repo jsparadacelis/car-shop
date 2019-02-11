@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
 
-URL_BASE = "http://127.0.0.1:8000"
+URL_BASE = "https://demo-carshop.herokuapp.com"
 # Application definition
 
 INSTALLED_APPS = [
