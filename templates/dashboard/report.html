@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block contain %}
+<div class="container">
+    {% if list_car_brand %}
+    <div>
+            <h3>Reporte por marcas y automóviles</h3>
+
+        <div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for car in car_count %}
+                    <tr>
+                        <td>{{car.marca | upper}}</td>
+                        <td>{{car.cantidad}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+        <div>
+            {% for brand in list_car_brand %}
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Placa</th>
+                        <th scope="col">Tipo de carro</th>
+                        <th scope="col">Propietario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for car in brand.list_cars %}
+                    <tr>
+                        <td>{{car.pk}}</td>
+                        <td>{{car.car_plate|upper}}</td>
+                        <td>{{car.car_type}}</td>
+                        <td>{{car.car_owner.full_name|upper}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="col-sm-6 btn-create">
+        <h1>
+            Aún no tienes autos creados
+        </h1>
+        <button class="btn btn-primary ">
+            <a href="{% url 'create_car' %}"><i class="fas fa-plus-circle"></i>¡Quiero mi auto!</a>
+        </button>
+    </div>
+
+    {% endif %}
+</div>
+
+{% endblock contain%}

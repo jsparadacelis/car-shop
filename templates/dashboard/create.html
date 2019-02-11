@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contain %}
+<div class="container">
+    
+    <div class="form-container">
+            <h4>Crea un nuevo objeto</h4>
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="btn-create">
+                <button type="submit" class="btn btn-sm btn-success">
+                    Crear
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock contain%}

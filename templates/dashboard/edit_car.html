@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block contain %}
+<div class="container">
+    <div class="form-container">
+        <h3>Editar carro</h3>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div>
+                <button type="submit" class="btn btn-sm btn-success">
+                    Guardar cambios
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock contain%}

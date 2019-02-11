@@ -1,0 +1,114 @@
+.navbar-collapse{
+    justify-content: space-between
+}
+body{
+    font-family: 'Muli', sans-serif;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    padding-top: 6%
+}
+.login-container{
+    display : block;
+    border: 1px #ccc solid;
+    border-radius: 10px;
+    width: 100%;
+    padding : 0px 50px 30px 50px;
+    text-align: center;
+}
+
+.login-container form{
+    display: grid;
+}
+.login-container img{
+    width: 130px
+}
+.login-container form input{
+    margin-bottom: 15px;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px #ccc solid;
+    text-align: center;
+}
+.logup-container {
+    display: block;
+    width: 50%;
+    border-radius: 10px;
+    padding: 15px 50px 30px 50px;
+    text-align: center;
+    margin-top: -5%;
+    border: 1px #ccc solid;
+}
+.logup-container form p{
+    display: inline-grid;
+}
+
+.logup-container form{
+    display: inline-grid;
+}
+.logup-container form p label{
+    display: none;
+}
+.logup-container form input{
+    border: none;
+    border-bottom: 1px #ccc solid;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.btn-create{
+    text-align: center;
+}
+.btn-create button a{
+    color: aliceblue;
+}
+.alert{
+    text-align: center;
+}
+.alert-error{
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    text-align: center;
+}
+.form-container{
+    border: 1px #ccc solid;
+    border-radius: 10px;
+    padding: 1.5em;
+    margin-bottom: 5%;
+}
+.form-container form p{
+    display: flex;
+    justify-content: space-between;
+}
+.form-container form p input{
+    border: none;
+    text-align: center;
+    border-bottom: 1px #ccc solid;
+}
+.form-container form input{
+    border: none;
+    text-align: center;
+    border-bottom: 1px #ccc solid;
+}
+.dropdown{
+    margin-right: 1.5em;
+}
+.errorlist{
+    display: none;
+}
+.form-api-request{
+    border: 1px #ccc solid;
+    border-radius: 10px;
+    padding: 1em;
+}
+.form-api-request div textarea{
+    margin-top: 3%;
+}
+.form-api-request input{
+    border: none;
+    text-align: center;
+    border-bottom: 1px #ccc solid;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logup-container">
+            <h3>Completa tus datos</h3>
+            <form action="{% url 'sign_up' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form_signup.first_name|attr:"placeholder:nombre"}}
+                {{form_signup.last_name|attr:"placeholder:apellido"}}
+                {{form_signup.username|attr:"placeholder:nombre de usuario"}}
+                {{form_signup.password|attr:"placeholder:contraseña"}}
+                {{form_signup.confirm_password|attr:"placeholder:confirma tu contraseña"}}
+                {{form_signup.country_id|attr:"placeholder:cédula"}}
+                {{form_signup.email|attr:"placeholder:correo"}}
+                <label for="is_staff_id">
+                    ¿Quieres ser superheroe?
+                    {{form_signup.is_staff}}
+                </label>
+                
+                {{form_signup.document_file}}
+                <button type="submit" class="btn btn-success">
+                    <i class="far fa-folder-open"></i>
+                    Registrate
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

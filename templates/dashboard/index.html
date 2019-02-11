@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block contain %}
+
+<div class="container">
+    <div>
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+    {% if list_cars %}
+        <h4>Realizar una búsqueda</h4>
+        <div class="form-container">
+            
+            <form action="{% url 'index' %}" method="post">
+                {% csrf_token %}
+                {{form.car_plate|attr:"placeholder:placa"}}
+                {{form.car_owner_name|attr:"placeholder:nombre"}}
+                {{form.owner_id|attr:"placeholder:cedula"}}
+                <button type="submit" class="btn btn-sm btn-success">Buscar</button>
+            </form>
+        </div>
+        <h4>Tus vehículos</h4>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in list_cars %}
+                <tr>
+                    <td>{{car.id}}</td>
+                    <td>{{car.car_plate|upper}}</td>
+                    <td>{{car.car_brand|upper}}</td>
+                    <td>{{car.car_type}}</td>
+                    <td>
+                        <a href="{% url 'edit_car' car.id %}"><i class="far fa-edit"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="pagination">
+            <span class="step-links">
+                {% if list_cars.has_previous %}
+                <a href="?page=1">&laquo; Primera</a>
+                <a href="?page={{ list_cars.previous_page_number }}">Anterior</a>
+                {% endif %}
+
+                <span class="current">
+                    Página {{ list_cars.number }} of {{ list_cars.paginator.num_pages }}.
+                </span>
+
+                {% if list_cars.has_next %}
+                <a href="?page={{ list_cars.next_page_number }}">Siguiente</a>
+                <a href="?page={{ list_cars.paginator.num_pages }}">Ultima &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+        {% else %}
+        <div class="btn-create">
+            <h1>
+                Aún no tienes autos creados
+            </h1>
+            <button class="btn btn-primary ">
+                <a href="{% url 'create_car' %}"><i class="fas fa-plus-circle"></i>¡Quiero mi auto!</a>
+            </button>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock contain %}

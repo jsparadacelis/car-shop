@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+{% block contain %}
+<div class="container">
+    <div class="logup-container">
+        <h3>Completa tus datos</h3>
+        <form action="{% url 'edit_profile' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.first_name|attr:"placeholder:nombre"}}
+            {{form.last_name|attr:"placeholder:apellido"}}
+            {{form.username|attr:"placeholder:nombre de usuario"}}
+            {{form.password|attr:"placeholder:contraseña"}}
+            {{form.confirm_password|attr:"placeholder:confirma tu contraseña"}}
+            {{form.country_id|attr:"placeholder:cédula"}}
+            {{form.email|attr:"placeholder:correo"}}
+            <label for="is_staff_id">
+                ¿Quieres ser superheroe?
+                {{form.is_staff}}
+            </label>
+            {{form.document_file}}
+            <button type="submit" class="btn btn-success">
+                <i class="far fa-folder-open"></i>
+                Guardar cambios
+            </button>
+        </form>
+
+    </div>
+</div>
+{% endblock contain%}
