@@ -1,9 +1,11 @@
+# Core django imports
 from django.urls import path
-
+# Local app views import
 from .api import CarList, get_car_list_by_user, get_car_list_by_brand, get_car_count_by_brand, request_to_api
 from .views import login_view, sign_up, index_view, get_report, create_car, edit_profile, dowload_csv_file, edit_car, create_brand, log_out
 
 urlpatterns = [
+    # main urls for app views
     path("", login_view, name="login_view"),
     path("sign_up", sign_up, name="sign_up"),
     path("index", index_view, name="index"),
