@@ -36,7 +36,7 @@ DB_USER = getenvvar('DB_USER')
 DB_PASS = getenvvar('DB_PASS')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = getenvvar('DEBUG', True)
+DEBUG = getenvvar('DEBUG', False)
 
 ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
 
