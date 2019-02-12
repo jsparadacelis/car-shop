@@ -32,6 +32,7 @@ SECRET_KEY = getenvvar('SECRET_KEY')
 
 # DB Vars
 DB_NAME = getenvvar('DB_NAME')
+DB_USER = getenvvar('DB_USER')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -110,7 +111,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': DB_NAME,
-        'USER': 'carshop_admin',
+        'USER': DB_USER,
         'PASSWORD': 'c4r5h0p_db',
         'HOST': 'localhost',
         'PORT': '5432',
