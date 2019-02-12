@@ -14,6 +14,7 @@ import os, dj_database_url
 
 
 def getenvvar(name, default=None):
+    print("hola")
     key = os.environ.get(name)
     if not key:
         if default is not None:
@@ -24,12 +25,11 @@ def getenvvar(name, default=None):
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # get secret key generate by django
-print(getenvvar('SECRET_KEY'))
 SECRET_KEY = getenvvar('SECRET_KEY')
 # DB vars
-DB_NAME = str(getenvvar('DB_NAME'))
-DB_USER = str(getenvvar('DB_USER'))
-DB_PASS = str(getenvvar('DB_PASS'))
+DB_NAME = getenvvar('DB_NAME')
+DB_USER = getenvvar('DB_USER')
+DB_PASS = getenvvar('DB_PASS')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False #if getenvvar('DEBUG') == "False" else True
