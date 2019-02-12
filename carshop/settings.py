@@ -12,27 +12,26 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os, dj_database_url
 
-
 def getenvvar(name, default=None):
-    print("hola")
-    key = os.environ.get(name)
-    if not key:
+    v = os.environ.get(name)
+    if not v:
         if default is not None:
             return default
         raise Exception('Environment variable {} undefined'.format(name))
-    return key
-
+    return v
+    
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# get secret key generate by django
-SECRET_KEY = getenvvar('SECRET_KEY')
-# DB vars
-DB_NAME = getenvvar('DB_NAME')
-DB_USER = getenvvar('DB_USER')
-DB_PASS = getenvvar('DB_PASS')
+
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'cb+ff52r-0m&by00_lt6ew3=rnszj3os2qbzmq8nf39g-(anx9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #if getenvvar('DEBUG') == "False" else True
+DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
 
@@ -96,12 +95,19 @@ WSGI_APPLICATION = 'carshop.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 
+""" DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    }
+} """
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASS,
+        'NAME': 'carshop_db',
+        'USER': 'carshop_admin',
+        'PASSWORD': 'c4r5h0p_db',
         'HOST': 'localhost',
         'PORT': '5432',
     }
