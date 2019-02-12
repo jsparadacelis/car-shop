@@ -36,7 +36,7 @@ DB_USER = getenvvar('DB_USER')
 DB_PASS = getenvvar('DB_PASS')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = getenvvar('DEBUG', True)
 
 ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
 
@@ -99,13 +99,6 @@ WSGI_APPLICATION = 'carshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-
-""" DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
-    }
-} """
 
 DATABASES = {
     'default': {
