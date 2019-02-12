@@ -19,7 +19,7 @@ def getenvvar(name, default=None):
             return default
         raise Exception('Environment variable {} undefined'.format(name))
     return v
-    
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cb+ff52r-0m&by00_lt6ew3=rnszj3os2qbzmq8nf39g-(anx9'
+SECRET_KEY = getenvvar('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
