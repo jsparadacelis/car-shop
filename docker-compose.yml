@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/car_shop
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - SECRET_KEY=cb+ff52r-0m&by00_lt6ew3=rnszj3os2qbzmq8nf39g-(anx9
+      - DATABASE_URL=postgres://hkwyyozdcpadeu:f8c27073b9e07b79d392a4fc01f5a943903ac82fd9c3fab0ba015e51d3c7fd0b@ec2-54-225-237-84.compute-1.amazonaws.com:5432/d146uhpkh25voe
+      - DB_NAME=carshop_db
+      - DB_PASS=c4r5h0p_db
+      - DB_USER=carshop_admin
+
