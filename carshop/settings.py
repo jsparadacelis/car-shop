@@ -24,7 +24,8 @@ def getenvvar(name, default=None):
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # get secret key generate by django
-SECRET_KEY = str(getenvvar('SECRET_KEY'))
+print(getenvvar('SECRET_KEY'))
+SECRET_KEY = getenvvar('SECRET_KEY')
 # DB vars
 DB_NAME = str(getenvvar('DB_NAME'))
 DB_USER = str(getenvvar('DB_USER'))
